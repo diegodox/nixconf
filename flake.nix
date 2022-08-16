@@ -32,9 +32,13 @@
     #     to apply.
     #
     # See: [Home Manager Manual / 3 Nix Flakes / 3.2 Standalone setup](https://nix-community.github.io/home-manager/index.html#sec-flakes-standalone)
-    homeConfigurations.diego = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.standalone = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home/diego.nix  ];
+      modules = [
+        ./home/standalone.nix
+        ./home/desktop.nix
+        ./modules/development/git.nix
+      ];
     };
 
     nixosConfigurations = {
