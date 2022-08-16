@@ -17,5 +17,6 @@
 
   imports = [
     ../modules/development/git.nix
+    ../modules/development/bash.nix
   ];
 }

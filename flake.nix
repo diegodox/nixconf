@@ -38,6 +38,7 @@
         ./home/standalone.nix
         ./home/desktop.nix
         ./modules/development/git.nix
+        ./modules/development/bash.nix
       ];
     };
 
