@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./devtools.nix
       ./desktop.nix
@@ -30,7 +31,7 @@
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 
-  virtualisation.virtualbox.guest.enable = true; 
+  virtualisation.virtualbox.guest.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
