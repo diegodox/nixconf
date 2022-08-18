@@ -7,7 +7,6 @@
     file
     exa
     bat
-    lazygit
   ];
 
   fonts.fonts = with pkgs; [

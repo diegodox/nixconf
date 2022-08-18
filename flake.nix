@@ -70,7 +70,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.diego = import ./home/diego.nix;
+              home-manager.users.diego.imports = [
+                  ./home/diego.nix
+                  ./home/desktop.nix
+              ];
             }
           ];
         };

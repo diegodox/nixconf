@@ -8,4 +8,6 @@
     delta.enable = true;
     extraConfig.init.defaultBranch = "main";
   };
+  config.programs.gh.enable = true;
+  config.home.packages = [ pkgs.lazygit ];
 }
