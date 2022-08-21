@@ -8,11 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-flake.url = "github:diegodox/neovim-flake";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    neovim-flake,
     ...
   }: let
     system = "x86_64-linux";
@@ -47,13 +49,16 @@
     #   2. [NixOS Wiki - Nix command](https://nixos.wiki/wiki/Nix_command)
     #   3. [Nix manual - 7. Command Reference - 7.6 Files - 7.6.1 nix.conf](https://nixos.org/manual/nix/stable/command-ref/conf-file.html)
     homeConfigurations.standalone = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {allowUnfree = true;};
+        overlays = [
+          neovim-flake.overlays.default
+        ];
+      };
       modules = [
         ./home/standalone.nix
         ./home/desktop.nix
-        ./modules/development/git.nix
-        ./modules/development/bash.nix
-        ./modules/development/fish
       ];
     };
 
