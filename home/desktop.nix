@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your
@@ -13,8 +15,8 @@
   # changes in each release.
   home.stateVersion = "22.05";
 
-  home.packages = [
-    pkgs.vim
+  home.packages = with pkgs; [
+    vim
   ];
 
   imports = [
